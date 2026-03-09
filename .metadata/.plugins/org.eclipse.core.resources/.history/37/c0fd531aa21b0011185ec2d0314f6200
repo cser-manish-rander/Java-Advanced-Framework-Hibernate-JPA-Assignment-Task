@@ -1,0 +1,289 @@
+////////
+////////package com.cagemini.java_dev.framework.hibernate_jpa.main;
+////////
+////////import jakarta.persistence.EntityManagerFactory;
+////////import jakarta.persistence.Persistence;
+////////
+////////public class JavaApp {
+////////
+////////    public static void execution() {
+////////
+////////        EntityManagerFactory entityManagerFactory =
+////////                Persistence.createEntityManagerFactory("Student");
+//////////        EntityManagerFactory entityManager = entityManagerFactory.createEntityManager();
+////////
+////////        System.out.println("Hello World");
+////////
+////////    }
+////////}
+////////
+//////
+//////
+//////package com.cagemini.java_dev.framework.hibernate_jpa.main;
+//////
+//////import com.capgemini.java_dev.framework.hibernate_jpa.entity.Student;
+//////
+//////import jakarta.persistence.EntityManager;
+//////import jakarta.persistence.EntityManagerFactory;
+//////import jakarta.persistence.EntityTransaction;
+//////import jakarta.persistence.Persistence;
+//////
+//////public class JavaApp {
+//////
+//////    public static void execution() {
+//////
+//////        EntityManagerFactory entityManagerFactory =
+//////                Persistence.createEntityManagerFactory("Student");
+//////
+//////        EntityManager entityManager = entityManagerFactory.createEntityManager();
+////////        System.out.println(entityManager);
+//////        EntityTransaction  entitytransaction = entityManager.getTransaction();
+//////        entitytransaction.begin();
+//////        Student student1=new Student();
+//////        student1.setId(1);
+//////        student1.setName("Raja");
+//////        student1.setEmailId("raja@gmail.com");
+//////        student1.setContactNumber(9876598765L);
+////////        entityManager.persist(student1);
+//////        
+//////        Student student2=new Student();
+//////        student2.setId(2);
+//////        student2.setName("Rani");
+//////        student2.setEmailId("rani@gmail.com");
+//////        student2.setContactNumber(9776598765L);
+//////        entityManager.persist(student2);
+//////        
+//////        entitytransaction.commit();
+//////        entityManager.close();
+//////        
+//////        System.out.println("Hello World");
+//////
+//////    }
+//////}
+//////
+////package com.cagemini.java_dev.framework.hibernate_jpa.main;
+////
+////import com.capgemini.java_dev.framework.hibernate_jpa.entity.Student;
+////import jakarta.persistence.EntityManager;
+////import jakarta.persistence.EntityManagerFactory;
+////import jakarta.persistence.EntityTransaction;
+////import jakarta.persistence.Persistence;
+////
+////public class JavaApp {
+////
+////    public static void execution() {
+////
+////        EntityManagerFactory entityManagerFactory =
+////                Persistence.createEntityManagerFactory("Student");
+////
+////        EntityManager entityManager = entityManagerFactory.createEntityManager();
+////
+////        EntityTransaction transaction = entityManager.getTransaction();
+////
+////        transaction.begin();
+////
+////        Student student1 = new Student();
+////        student1.setId(1);
+////        student1.setName("Raja");
+////        student1.setEmailId("raja@gmail.com");
+////        student1.setContactNumber(9876598765L);
+////
+//////        Student student2 = new Student();
+//////        student2.setName("Rani");
+//////        student2.setEmailId("rani@gmail.com");
+//////        student2.setContactNumber(9776598765L);
+////       
+////        Student student2 = new Student();
+////        student2.setId(2);
+////        student2.setName("Rani");
+////        student2.setEmailId("rani@gmail.com");
+////        student2.setContactNumber(9676598765L);
+////        entityManager.persist(student2);
+////        transaction.commit();
+////
+////        Student student = entityManager.find(Student.class,10);
+////        if(student != null) {
+////        	System.out.println(student);
+////        }
+////        else {
+////        	System.out.println("Student Data Not Found");
+////        }
+////        System.out.println(student);
+//////        transaction.commit();
+////
+////        entityManager.close();
+////        entityManagerFactory.close();
+////
+////        System.out.println("Data Inserted Successfully");
+////    }
+////}
+//
+//package com.cagemini.java_dev.framework.hibernate_jpa.main;
+//
+//import com.capgemini.java_dev.framework.hibernate_jpa.entity.Student;
+//import jakarta.persistence.EntityManager;
+//import jakarta.persistence.EntityManagerFactory;
+//import jakarta.persistence.EntityTransaction;
+//import jakarta.persistence.Persistence;
+//
+//public class JavaApp {
+//
+//    public static void execution() {
+//
+//        EntityManagerFactory entityManagerFactory =
+//                Persistence.createEntityManagerFactory("Student");
+//
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//
+//        EntityTransaction transaction = entityManager.getTransaction();
+//
+//        transaction.begin();
+//
+//        Student student1 = new Student();
+//        student1.setId(1);
+//        student1.setName("Raja");
+//        student1.setEmailId("raja@gmail.com");
+//        student1.setContactNumber(9876598765L);
+//
+//        Student student2 = new Student();
+//        student2.setId(2);
+//        student2.setName("Rani");
+//        student2.setEmailId("rani@gmail.com");
+//        student2.setContactNumber(9676598765L);
+//
+//        // INSERT DATA
+////        entityManager.persist(student1);
+////        entityManager.persist(student2);
+//
+//    
+//
+//        // FETCH DATA
+//        Student student = entityManager.find(Student.class, 1);
+//
+//        if(student != null) {
+//            System.out.println(student);
+//            student.setEmailId("king@gmail.com");
+//            student.setContactNumber(9988876543L);
+//            entityManager.merge(student);
+//            System.out.println("Student Data Updated Successfully");
+//        } else {
+//            System.out.println("Student Data Not Found");
+//        }
+//        
+//        Student data=entityManager.find(Student.class, 2);
+//        entityManager.remove(data);
+//        transaction.commit();
+//
+//        entityManager.close();
+////        entityManagerFactory.close();
+//
+////        System.out.println("Data Inserted Successfully");
+//    }
+//    
+//    public static void execution1() {
+//    	
+//    }
+//}
+
+package com.cagemini.java_dev.framework.hibernate_jpa.main;
+
+import java.util.Scanner;
+
+import com.capgemini.java_dev.framework.hibernate_jpa.entity.Employee;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class JavaApp {
+
+    public static void execution1() {
+
+        Scanner sc = new Scanner(System.in);
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Employee");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        // CREATE
+        tx.begin();
+
+        Employee e = new Employee();
+
+        System.out.println("Enter Employee Id:");
+        e.setId(sc.nextInt());
+
+        sc.nextLine();
+
+        System.out.println("Enter First Name:");
+        e.setFirstName(sc.nextLine());
+
+        System.out.println("Enter Email Id:");
+        e.setEmailId(sc.nextLine());
+
+        System.out.println("Enter Contact Number:");
+        e.setContactNumber(sc.nextLong());
+
+        em.persist(e);
+
+        tx.commit();
+
+        System.out.println("Employee Inserted Successfully");
+
+        // READ
+        System.out.println("Enter Employee Id to Read:");
+        int readId = sc.nextInt();
+
+        Employee emp = em.find(Employee.class, readId);
+
+        if(emp != null) {
+            System.out.println(emp);
+        } else {
+            System.out.println("Employee Not Found");
+        }
+
+        // UPDATE
+        System.out.println("Enter Employee Id to Update:");
+        int updateId = sc.nextInt();
+
+        Employee updateEmp = em.find(Employee.class, updateId);
+
+        if(updateEmp != null) {
+
+            sc.nextLine();
+
+            System.out.println("Enter New Email:");
+            updateEmp.setEmailId(sc.nextLine());
+
+            System.out.println("Enter New Contact Number:");
+            updateEmp.setContactNumber(sc.nextLong());
+
+            tx.begin();
+            em.merge(updateEmp);
+            tx.commit();
+
+            System.out.println("Employee Updated Successfully");
+        }
+
+        // DELETE
+        System.out.println("Enter Employee Id to Delete:");
+        int deleteId = sc.nextInt();
+
+        Employee delEmp = em.find(Employee.class, deleteId);
+
+        if(delEmp != null) {
+
+            tx.begin();
+            em.remove(delEmp);
+            tx.commit();
+
+            System.out.println("Employee Deleted Successfully");
+        }
+
+        em.close();
+        emf.close();
+        sc.close();
+    }
+}
+

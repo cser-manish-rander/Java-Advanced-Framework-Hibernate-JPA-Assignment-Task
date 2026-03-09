@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.beans.PersistenceDelegate"/>
+    <fullyQualifiedTypeName name="com.cagemini.java_dev.framework.hibernate_jpa.main.JavaApp"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EntityManagerFactory"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="com.capgemini.java_dev.framework.hibernate_jpa.entity.Student"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,63 @@
+//
+//package com.cagemini.java_dev.framework.hibernate_jpa.main;
+//
+//import jakarta.persistence.EntityManagerFactory;
+//import jakarta.persistence.Persistence;
+//
+//public class JavaApp {
+//
+//    public static void execution() {
+//
+//        EntityManagerFactory entityManagerFactory =
+//                Persistence.createEntityManagerFactory("Student");
+////        EntityManagerFactory entityManager = entityManagerFactory.createEntityManager();
+//
+//        System.out.println("Hello World");
+//
+//    }
+//}
+//
+
+
+package com.cagemini.java_dev.framework.hibernate_jpa.main;
+
+import com.capgemini.java_dev.framework.hibernate_jpa.entity.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class JavaApp {
+
+    public static void execution() {
+
+        EntityManagerFactory entityManagerFactory =
+                Persistence.createEntityManagerFactory("Student");
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        System.out.println(entityManager);
+        EntityTransaction  entitytransaction = entityManager.getTransaction();
+        entitytransaction.begin();
+        Student student1=new Student();
+        student1.setId(1);
+        student1.setName("Raja");
+        student1.setEmailId("raja@gmail.com");
+        student1.setContactNumber(9876598765L);
+//        entityManager.persist(student1);
+        
+        Student student2=new Student();
+        student2.setId(2);
+        student2.setName("Rani");
+        student2.setEmailId("rani@gmail.com");
+        student2.setContactNumber(9776598765L);
+        entityManager.persist(student2);
+        
+        entitytransaction.commit();
+        entityManager.close();
+        
+        System.out.println("Hello World");
+
+    }
+}
+
