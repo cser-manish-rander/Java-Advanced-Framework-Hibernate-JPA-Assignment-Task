@@ -1,0 +1,1 @@
+package com.cagemini.java_dev.framework.hibernate_jpa.main;
